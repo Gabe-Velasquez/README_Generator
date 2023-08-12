@@ -1,15 +1,25 @@
 // TODO: Include packages needed for this application
-const fs = require('fs');
-const inquirer = require('inquirer');
+const fs = require('fs'); //calling file system into my project so we can write a new file
+const inquirer = require('inquirer'); //installed inquirer package via npm and calling it into my project here
+const generateMarkdown = require('./utils/generateMarkdown'); //pulling required document for the template
+
+// template to generate form 
+const getMarkUp = ({username, projectTitle})=>(
+    ` `
+)
 
 // TODO: Create an array of questions for user input
-const questions = [];
-
+// Using inquirer here to gather information from the user so we can use it later :)
     inquirer.prompt([
         {
             type: 'input',
             name: 'username',
-            message: 'What is your login on github?'
+            message: 'What is your login on github?',
+            validate: inputUserName=>{
+                return (inputUserName) ? true 
+                : console.log('Please enter your username to put on your project.');
+                false
+            }
         },
         {
             type: 'input',
@@ -41,7 +51,12 @@ const questions = [];
             name: 'tests',
             message: 'What tests were conducted in this project?'
         },
-    ])
+    // ]).then((response)=>{
+    //     console.log(response);
+    //     fs.writeFile('README.me', ,(err)=>{
+    //         err?console.log(err):console.log('Successful Build')
+    //     })
+    // })
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
