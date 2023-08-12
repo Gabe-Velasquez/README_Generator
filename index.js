@@ -13,45 +13,99 @@ const getMarkUp = ({username, projectTitle})=>(
     inquirer.prompt([
         {
             type: 'input',
+            name: 'name',
+            message: 'Welcome to this professional README generator!! Please enter your name?',
+            validate: inputName=>{
+                return (inputName) ? true 
+                : console.log('Please enter your name.');
+                false
+            }
+        },
+        {
+            type: 'input',
             name: 'username',
             message: 'What is your login on github?',
-            validate: inputUserName=>{
-                return (inputUserName) ? true 
-                : console.log('Please enter your username to put on your project.');
+            validate: inputGithub=>{
+                return (inputGithub) ? true 
+                : console.log('Please enter your github username.');
                 false
             }
         },
         {
             type: 'input',
             name: 'projectTitle',
-            message: 'What is the title of your project?'
+            message: 'What is the title of your project?',
+            validate: inputTitle=>{
+                return (inputTitle) ? true 
+                : console.log('Your project must have a title.');
+                false
+            }
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Please write a description of your project here.'
+            message: 'Please write a description of your project here.',
+            validate: inputDescription=>{
+                return (inputDescription) ? true 
+                : console.log('Please enter your username to put on your project.');
+                false
+            }
         },
         {
             type: 'input',
             name: 'installation',
-            message: 'Is there any special installation for this project? if yes, please ?'
+            message: 'Is there any special installation for this project?',
+            validate: inputInstallation=>{
+                return (inputInstallation) ? true 
+                : console.log('Please enter your installation steps to run this project.');
+                false
+            }
         },
         {
             type: 'input',
             name: 'usage',
-            message: 'How is this project supposed to be used?'
+            message: 'How is this project supposed to be used?',
+            validate: inputUsage=>{
+                return (inputUsage) ? true 
+                : console.log('Please enter how your application is supposed to be used.');
+                false
+            }
         },
         {
             type: 'input',
             name: 'contribution',
-            message: 'Was there anyone who helped build this project? If so, who are they and what did they do?'
+            message: 'Was there anyone who helped build this project? If so, who are they and what did they do?',
+            validate: inputContribution=>{
+                return (inputContribution) ? true 
+                : console.log('Please enter anyone that helped you build this project. If no one helped, put you as the "Sole Author"');
+                false
+            }
         },
         {
             type: 'input',
             name: 'tests',
-            message: 'What tests were conducted in this project?'
+            message: 'What tests were conducted in this project?',
+            validate: inputTests=>{
+                return (inputTests) ? true 
+                : console.log('Please list tests you used to build this project.');
+                false
+            }
         },
-    // ]).then((response)=>{
+        {
+            type: 'confirm',
+            name: 'licensesConfirm',
+            message: 'Would you like to add a license to this README?',
+            default: false
+        },
+        {
+            type: 'list',
+            name: 'licenses',
+            message: 'What license would you like to add?',
+            choices: ['MIT','CC--0','GLP'],
+            when: ({ confirmLicenses }) => confirmLicenses ? true : false,
+        }
+    ])
+    // .then((response)=>{
     //     console.log(response);
     //     fs.writeFile('README.me', ,(err)=>{
     //         err?console.log(err):console.log('Successful Build')
@@ -64,7 +118,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    
+
 }
 
 // Function call to initialize app
