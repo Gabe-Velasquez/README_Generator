@@ -9,7 +9,7 @@ const generateMarkdown = require('./utils/generateMarkdown'); //pulling required
             type: 'input',
             name: 'name',
             message: 'Welcome to this professional README generator!! Please enter your name?',
-            validate: inputName=>{
+            validate: inputName=>{ //added validate to all questions so there are values for each question
                 return (inputName) ? true 
                 : console.log('Please enter your name.');
                 false
