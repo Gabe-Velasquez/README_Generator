@@ -2,18 +2,18 @@
   
 
   ## Table of Contents
-  *[Description](#description)
-  *[Installation](#Installation)
-  *[Usage](#usage)
-  *[Contribution](#contribution)
-  *[Tests](#tests)
-  *[Questions](#questions)
-  *[Credits](#credits)
+  *[Description](#description) <br>
+  *[Installation](#Installation) <br>
+  *[Usage](#usage) <br>
+  *[Contribution](#contribution) <br>
+  *[Tests](#tests) <br>
+  *[Questions](#questions) <br>
+  *[Credits](#credits) <br>
 
   ## Description <a name='description'></a>
   This application was built to help programmers generate a professional readme in a few easy steps.
 
-  ## Installation <a name='installation'</a>
+  ## Installation <a name='installation'></a>
   We installed inquirer into this project to get these nice nifty prompts to show up to ask us questions. 
 
   ## Usage <a name='usage'></a>
