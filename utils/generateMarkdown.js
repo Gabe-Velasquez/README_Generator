@@ -33,18 +33,18 @@ function generateMarkdown(data) {
   ${renderLicenseBadge(data.license)}
 
   ## Table of Contents
-  *[Description](#description)
-  *[Installation](#Installation)
-  *[Usage](#usage)
-  *[Contribution](#contribution)
-  *[Tests](#tests)
-  *[Questions](#questions)
-  *[Credits](#credits)
+  *[Description](#description) <br>
+  *[Installation](#Installation) <br>
+  *[Usage](#usage) <br>
+  *[Contribution](#contribution) <br>
+  *[Tests](#tests) <br>
+  *[Questions](#questions) <br>
+  *[Credits](#credits) <br>
 
   ## Description <a name='description'></a>
   ${data.description}
 
-  ## Installation <a name='installation'</a>
+  ## Installation <a name='installation'></a>
   ${data.installation}
 
   ## Usage <a name='usage'></a>
@@ -60,10 +60,10 @@ function generateMarkdown(data) {
   ${data.tests}
 
   ## Questions <a name='questions'></a>
-  Have any questions regarding this project?
-  Send me a message on...
-  Github: https://github.com/${data.username}
-  Email: ${data.email}
+  Have any questions regarding this project? <br>
+  Send me a message on... <br>
+  Github: https://github.com/${data.username} <br>
+  Email: ${data.email} <br>
 
   ## Credits <a name='credits'></a>
   ${data.name}
