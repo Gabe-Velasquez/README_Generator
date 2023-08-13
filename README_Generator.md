@@ -18,7 +18,7 @@
 
   ## Usage <a name='usage'></a>
   Our project will need to be run in the command terminal with the command "node index.js" which will start to ask you a list of questions you need to fill out a README doc to put on your applications.<br>
-![Alt text](./README_Generator.webm)
+![Alt text](./README_Generator.gif)
   ## Licenses <a name='license'></a>
   
 
