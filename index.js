@@ -97,17 +97,11 @@ const generateMarkdown = require('./utils/generateMarkdown'); //pulling required
             }
         },
         {
-            type: 'confirm',
-            name: 'licensesConfirm',
-            message: 'Would you like to add a license to this README?',
-            default: false
-        },
-        {
             type: 'list',
             name: 'license',
-            message: 'What license would you like to add?',
-            choices: ['MIT','CC--0','GLP'],
-            when: ({ confirmLicenses }) => confirmLicenses ? true : false,
+            message: 'What license would you like to add to your project?',
+            choices: ['MIT','CC--0','GLP', 'No License'],
+            // when: ({ confirmLicenses }) => confirmLicenses ? true : false,
         }
     ]).then((answer)=>{
         const markdownContent = generateMarkdown(answer);

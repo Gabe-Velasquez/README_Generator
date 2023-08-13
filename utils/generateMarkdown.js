@@ -4,12 +4,12 @@ const fs = require('fs');
 // If there is no license, return an empty string. Ternary operator evaluates if there is no license, it will be an empty string. if there is one, it will render license
 
 function renderLicenseBadge(license) {
-  (!license)? ``:`[![${license} license](https://img.shilds.io/badge/License-${license}-blue.svg)](${renderLicenseLink}(license)})`
+  return (license ==='No License')?'':`[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string. Put it in a switch case to evaluate license
-function renderLicenseBadge(license) {
+function renderLicenseLink(license) {
   switch(license){
     case 'MIT':
       return `https://mit-license.org/`;
@@ -28,14 +28,15 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  (!license)?``:`##Licenses 
+  return (license ==='No License')?``:`
   This project is using the ${license} license. To learn more, please click the license link listed above.`
 }
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.projectTitle}
-  ${renderLicenseBadge(data.licenses)}
+  ${renderLicenseBadge(data.license)}
 
   ## Table of Contents
   *[Description](#description)
@@ -55,7 +56,7 @@ function generateMarkdown(data) {
   ## Usage <a name='usage'></a>
   ${data.usage}
 
-  ## Licenses <a name='licenses'></a>
+  ## Licenses <a name='license'></a>
   ${renderLicenseSection(data.license)}
 
   ## Contribution <a name='contribution'></a>
