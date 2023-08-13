@@ -3,11 +3,6 @@ const fs = require('fs'); //calling file system into my project so we can write 
 const inquirer = require('inquirer'); //installed inquirer package via npm and calling it into my project here
 const generateMarkdown = require('./utils/generateMarkdown'); //pulling required document for the template
 
-// template to generate form 
-const getMarkUp = ({username, projectTitle})=>(
-    ` `
-)
-
 // TODO: Create an array of questions for user input
 // Using inquirer here to gather information from the user so we can use it later :)
     inquirer.prompt([
@@ -33,6 +28,16 @@ const getMarkUp = ({username, projectTitle})=>(
         },
         {
             type: 'input',
+            name: 'email',
+            message: 'What is your email?',
+            validate: inputEmail=>{
+                return (inputEmail) ? true 
+                : console.log('Please enter your email for your README.');
+                false
+            }
+        },
+        {
+            type: 'input',
             name: 'projectTitle',
             message: 'What is the title of your project?',
             validate: inputTitle=>{
@@ -47,7 +52,7 @@ const getMarkUp = ({username, projectTitle})=>(
             message: 'Please write a description of your project here.',
             validate: inputDescription=>{
                 return (inputDescription) ? true 
-                : console.log('Please enter your username to put on your project.');
+                : console.log('Please enter a description of your project.');
                 false
             }
         },
@@ -99,30 +104,17 @@ const getMarkUp = ({username, projectTitle})=>(
         },
         {
             type: 'list',
-            name: 'licenses',
+            name: 'license',
             message: 'What license would you like to add?',
             choices: ['MIT','CC--0','GLP'],
             when: ({ confirmLicenses }) => confirmLicenses ? true : false,
         }
-    ])
-    // .then((response)=>{
-    //     console.log(response);
-    //     fs.writeFile('README.me', ,(err)=>{
-    //         err?console.log(err):console.log('Successful Build')
-    //     })
-    // })
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-
-}
-
-// TODO: Create a function to initialize app
-function init() {
-
-}
-
-// Function call to initialize app
-init();
+    ]).then((answer)=>{
+        const markdownContent = generateMarkdown(answer);
+        fs.writeFile(`${answer.projectTitle}`, markdownContent,(err)=>{
+            err?console.log(err):console.log('Successfully Built README')
+        });
+    });
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository

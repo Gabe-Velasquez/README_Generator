@@ -12,10 +12,10 @@ function renderLicenseBadge(license) {
 function renderLicenseBadge(license) {
   switch(license){
     case 'MIT':
-      return `https://lbesson.mit-license.org/`;
+      return `https://mit-license.org/`;
       break;
     case 'GPL':
-      return `http://perso.crans.org/besson/LICENSE.html`;
+      return `https://www.gnu.org/licenses/gpl-3.0.en.html#license-text`;
       break;
     case 'CC--0':
       return `https://creativecommons.org/licenses/by-nd/4.0`;
@@ -34,7 +34,7 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.projectTitle}
   ${renderLicenseBadge(data.licenses)}
 
   ## Table of Contents
@@ -56,7 +56,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## Licenses <a name='licenses'></a>
-  ${renderLicenseSection(data.licenses)}
+  ${renderLicenseSection(data.license)}
 
   ## Contribution <a name='contribution'></a>
   ${data.contribution}
@@ -67,7 +67,7 @@ function generateMarkdown(data) {
   ## Questions <a name='questions'></a>
   Have any questions regarding this project?
   Send me a message on:
-  Github: https://github.com/${data.github}
+  Github: https://github.com/${data.username}
   Email: ${data.email}
 
   ## Credits <a name='credits'></a>
