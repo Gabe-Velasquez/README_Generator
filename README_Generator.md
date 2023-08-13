@@ -23,7 +23,7 @@
   
 
   ## Contribution <a name='contribution'></a>
-  Sole Author
+  Sole Author after starter code provided by Xander Rapstine.
 
   ## Tests <a name='tests'></a>
   No tests conducted 
