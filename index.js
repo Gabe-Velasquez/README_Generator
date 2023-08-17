@@ -115,7 +115,7 @@ inquirer
       type: "list",
       name: "license",
       message: "What license would you like to add to your project?",
-      choices: ["MIT", "CC--0", "GLP", "No License"],
+      choices: ["MIT", "CC--0", "GPL", "No License"],
     },
   ])
   .then((answer) => {

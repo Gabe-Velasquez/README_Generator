@@ -3,9 +3,7 @@ const fs = require("fs");
 function renderLicenseBadge(license) {
   return license === "No License"
     ? ""
-    : `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(
-        license
-      )})`;
+    : `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`;
 }
 
 // If there is no license, return an empty string. Put it in a switch case to evaluate license. Defaults to empty string if there are no matches for cases.
@@ -13,13 +11,10 @@ function renderLicenseLink(license) {
   switch (license) {
     case "MIT":
       return `https://mit-license.org/`;
-      break;
     case "GPL":
       return `https://www.gnu.org/licenses/gpl-3.0.en.html#license-text`;
-      break;
     case "CC--0":
       return `https://creativecommons.org/licenses/by-nd/4.0`;
-      break;
     default:
       return ""; //returning empty string here if there is no valid license passed through function
   }
